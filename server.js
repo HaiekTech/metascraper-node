@@ -20,25 +20,24 @@ var port = process.env.PORT || 8080;
 
 var router = express.Router();
 
-async function retrieveUrl(){
-  return await fetch('https://vg.no/')
-  .then(res => res.json())
-}
-
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
 router.post('/fetch', async function(req, res) {
 
-    if (req.body.source) {
+  if (req.body.source) {
+    try {
       const url = req.body.source;
       const response = await fetch(url);
       const html = await response.text();
       const doc = domino.createWindow(html).document;
       const metadata = getMetadata(doc, url);
-  
-      res.json({ meta: metadata });    
+      res.json({ meta: metadata });
     }
-    
-    res.json({ error: 'No source specified!' })
+    catch (err) {
+      res.json({ error: 'Something wrong with source link' });
+    } 
+  }
+  
+  //res.json({ error: 'No source specified!' })
     
 });
 
