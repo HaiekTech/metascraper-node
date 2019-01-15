@@ -1,0 +1,20 @@
+# EditorConfig is awesome: http://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+[*]
+indent_style = space
+indent_size = 2
+
+[*.{scss,style,css}]
+indent_style = space
+indent_size = 2
+
+[*.{twig,vue}]
+indent_style = space
+indent_size = 2
+
+[*.{js,coffee, ts}]
+indent_style = space
+indent_size = 2
