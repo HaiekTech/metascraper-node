@@ -26,7 +26,7 @@ async function retrieveUrl(){
 }
 
 // test route to make sure everything is working (accessed at GET http://localhost:8080/api)
-router.get('/fetch', async function(req, res) {
+router.post('/fetch', async function(req, res) {
 
     if (req.body.source) {
       const url = req.body.source;
